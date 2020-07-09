@@ -16,14 +16,14 @@ char names[6][20];
  * Function:  check
  *
  * --------------------
- *  Precondition:  none
+ * Precondition:  none
  *
  * --------------------
- *  Postcondition:  Prints out the occurence of a letter, that the user enters, throughout
- *                  the entire names array.
+ * Postcondition:  Prints out the occurence of a letter, that the user enters, throughout
+ *                 the entire names array.
  *
- *  --------------------
- *  returns:  nothing
+ * --------------------
+ * returns:  nothing
  */
 void check()
 {
@@ -52,14 +52,14 @@ void check()
  * Function:  emergency
  *
  * --------------------
- *  Precondition:  none
+ * Precondition:  none
  *
  * --------------------
- *  Postcondition:  Adds new appointment to beginning of array and shifts other appointments down.
- *                  If array is full, removes last appointment in array and shifts the rest over.
+ * Postcondition:  Adds new appointment to beginning of array and shifts other appointments down.
+ *                 If array is full, removes last appointment in array and shifts the rest over.
  *
- *  --------------------
- *  returns:  nothing
+ * --------------------
+ * returns:  nothing
  */
 void emergency()
 {
@@ -97,14 +97,14 @@ void emergency()
  * Function:  make
  *
  * --------------------
- *  Precondition:  none
+ * Precondition:  none
  *
  * --------------------
- *  Postcondition:  Adds new appointment to names array and increments counter.
- *                  If array is full, does not create new appointment.
+ * Postcondition:  Adds new appointment to names array and increments counter.
+ *                 If array is full, does not create new appointment.
  *
- *  --------------------
- *  returns:  nothing
+ * --------------------
+ * returns:  nothing
  */
 void make ()
 {
@@ -139,14 +139,14 @@ void make ()
  * Function:  delete
  *
  * --------------------
- *  Precondition:  none
+ * Precondition:  none
  *
  * --------------------
- *  Postcondition:  Removes appointment in names array with matching name that user
- *                  enters and decrements counter, unless no match is found.
+ * Postcondition:  Removes appointment in names array with matching name that user
+ *                 enters and decrements counter, unless no match is found.
  *
- *  --------------------
- *  returns:  nothing
+ * --------------------
+ * returns:  nothing
  */
 void delete()
 {
@@ -191,13 +191,13 @@ void delete()
  * Function:  view
  *
  * --------------------
- *  Precondition:  none
+ * Precondition:  none
  *
  * --------------------
- *  Postcondition:  prints out names of appointments in array with corresponding 
- *                  appointment times.
- *  --------------------
- *  returns:  nothing
+ * Postcondition:  prints out names of appointments in array with corresponding 
+ *                 appointment times.
+ * --------------------
+ * returns:  nothing
  */
 void view()
 {

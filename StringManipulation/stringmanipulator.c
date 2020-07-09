@@ -14,7 +14,20 @@ int i=0;
 int counter=0; //keeps track of array size
 char words[10][20]; //no more than 10 strings with max length of 20 characters each string
 
-void input()//to input strings in array
+/*
+ * Function:  input
+ *
+ * --------------------
+ * Precondition:  none
+ *
+ * --------------------
+ * Postcondition:  Adds string entered by user into array and prints out current array.
+ *                 If array is full, does nothing.
+ *
+ * --------------------
+ * returns:  nothing
+ */
+void input()
 {
         int j;
         char temp[20];
@@ -58,7 +71,19 @@ void input()//to input strings in array
         return;
 }
 
-void reverse()//To reverse array
+/*
+ * Function:  reverse
+ *
+ * --------------------
+ * Precondition:  none
+ *
+ * --------------------
+ * Postcondition:  Reverses order of strings in array and prints out reversed array.
+ *
+ * --------------------
+ * returns:  nothing
+ */
+void reverse()
 {
 		int k=counter-1;
         char t[10][20];
@@ -83,7 +108,20 @@ void reverse()//To reverse array
         return;
 }
 
-void convert()//Change lowercase to Uppercase
+/*
+ * Function:  convert
+ *
+ * --------------------
+ * Precondition:  none
+ *
+ * --------------------
+ * Postcondition:  Traverses through array and converts all lower case chars to upper case,
+ *                 then prints out array.
+ *
+ * --------------------
+ * returns:  nothing
+ */
+void convert()
 {
         for (i=0;i<10;i++)//transverse through strings in array looking for lowercase letters
         {
@@ -101,7 +139,19 @@ void convert()//Change lowercase to Uppercase
         return;
 }
 
-void show()//dispaly info about array
+/*
+ * Function:  show
+ *
+ * --------------------
+ * Precondition:  none
+ *
+ * --------------------
+ * Postcondition:  Prints out fun facts about the array such as avg len, shortest string, etc.
+ *
+ * --------------------
+ * returns:  nothing
+ */
+void show()
 {
         int counter2=0;
         float average;
