@@ -34,21 +34,21 @@ void reverse (char *);
 void freenodes(Node * , FILE * );
 
 /*
- * Function:	add
+ * Function:  add
  *
  * --------------------
- *  Precondition:	contains a char pointer parameter and an int parameter that must
- *					be >=1
+ *  Precondition:  contains a char pointer parameter and an int parameter that must
+ *	               be >=1
  *
  * --------------------
  *  Postcondition:	allocates memory for a new node to be added to the appropriate
  *					linked list according to the party size, or does nothing if there 
- *					is no available memory to be allocated
+ *                  is no available memory to be allocated
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
-void add(char *nameofparty, int sizeofparty)//add to list
+void add(char *nameofparty, int sizeofparty)
 {
 	int t;
 	Node *temp, *p;
@@ -103,17 +103,17 @@ void add(char *nameofparty, int sizeofparty)//add to list
 }
 
 /*
- * Function:	seat_available
+ * Function:  seat_available
  *
  * --------------------
- *  Precondition:	none
+ *  Precondition:  none
  *
  * --------------------
- *  Postcondition:	removes a node from linked list if a party size fits the
- *					available table, otherwise prints out message to stdout
+ *  Postcondition:  removes a node from linked list if a party size fits the
+ *                  available table, otherwise prints out message to stdout
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
 void seat_available()
 {
@@ -211,17 +211,17 @@ void seat_available()
 }
 
 /*
- * Function:	show_list
+ * Function:  show_list
  *
  * --------------------
- *  Precondition:	none
+ *  Precondition:  none
  *
  * --------------------
- *  Postcondition:	traverses through linked lists and prints out partyname
- * 					and partysize for each node in list.
+ *  Postcondition:  traverses through linked lists and prints out partyname
+ *                  and partysize for each node in list.
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
 void show_list()//show waitlist
 {
@@ -240,17 +240,17 @@ void show_list()//show waitlist
 }
 
 /*
- * Function:	occurence
+ * Function:  occurence
  *
  * --------------------
- *  Precondition:	none
+ *  Precondition:  none
  *
  * --------------------
- *  Postcondition:	traverses through linked lists and prints out the number of times
- *					a character, which the user enters, occurs within each node's partyname   
+ *  Postcondition:  traverses through linked lists and prints out the number of times
+ *	                a character, which the user enters, occurs within each node's partyname   
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
 void occurence()
 {
@@ -284,17 +284,17 @@ void occurence()
 }
 
 /*
- * Function:	recur
+ * Function:  recur
  *
  * --------------------
- *  Precondition:	none
+ *  Precondition:  none
  *
  * --------------------
- *  Postcondition:	traverses through linked lists and calls reverse function 
- *					to print partyname of nodes backwards
+ *  Postcondition:  traverses through linked lists and calls reverse function 
+ *	                to print partyname of nodes backwards
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
 void recur()
 {
@@ -313,17 +313,17 @@ void recur()
 }
 
 /*
- * Function:	reverse
+ * Function:  reverse
  *
  * --------------------
- *  Precondition:	receives char pointer
+ *  Precondition:  receives char pointer
  *
  * --------------------
- *  Postcondition:	uses recursion to reach end of string and prints
- *					string backwards
+ *  Postcondition:  uses recursion to reach end of string and prints
+ *                  string backwards
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
 void reverse(char *p)
 {
@@ -337,18 +337,18 @@ void reverse(char *p)
 }
 
 /*
- * Function:	save_data
+ * Function:  save_data
  *
  * --------------------
- *  Precondition:	receives char pointer to data file
+ *  Precondition:  receives char pointer to data file
  *
  * --------------------
- *  Postcondition:	writes linked list data into file pointed by parameter
+ *  Postcondition:  writes linked list data into file pointed by parameter
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
-void save_data(char *data)//save data into txt file
+void save_data(char *data)
 {
 	int i;
 	FILE *fp;
@@ -375,19 +375,19 @@ void save_data(char *data)//save data into txt file
 }
 
 /*
- * Function:	freenodes
+ * Function:  freenodes
  *
  * --------------------
- *  Precondition:	receives Node pointer and FILE pointer
+ *  Precondition:  receives Node pointer and FILE pointer
  *
  * --------------------
- *  Postcondition:	writes data from received Node into FILE pointed by parameter, 
- *					then frees up the memory used by Node.
+ *  Postcondition:  writes data from received Node into FILE pointed by parameter, 
+ *                  then frees up the memory used by Node.
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
-void freenodes(Node *p, FILE *fp)//recursive fuction to free and print nodes
+void freenodes(Node *p, FILE *fp)
 {
 	if (p==NULL)
 	{
@@ -403,17 +403,17 @@ void freenodes(Node *p, FILE *fp)//recursive fuction to free and print nodes
  * Function:  read_data
  *
  * --------------------
- *  Precondition: receives char pointer to data file
+ *  Precondition:  receives char pointer to data file
  *
  * --------------------
- *  Postcondition:	opens file pointed by parameter for reading and calls the
- *					add function if file is not empty, otherwise it sets head
- *					and tail pointers of linked lists to NULL
+ *  Postcondition:  opens file pointed by parameter for reading and calls the
+ *	                add function if file is not empty, otherwise it sets head
+ *	                and tail pointers of linked lists to NULL
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
-void read_data(char *data)//read data from saved file
+void read_data(char *data)
 {
 	int i;
 	int number;
@@ -444,17 +444,17 @@ void read_data(char *data)//read data from saved file
 }
 
 /*
- * Function:	loopThread
+ * Function:  loopThread
  *
  * --------------------
  *  Precondition: 
  *
  * --------------------
- *  Postcondition:	creates infinite thread loop to autosave data from linked lists into
- *					binary file every 5 seconds
+ *  Postcondition:  creates infinite thread loop to autosave data from linked lists into
+ *                  binary file every 5 seconds
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
 void *loopThread (void *arg)
 {
@@ -490,14 +490,14 @@ void *loopThread (void *arg)
  * Function:  see_bin
  *
  * --------------------
- *  Precondition:	receives char pointer to binary file
+ *  Precondition:  receives char pointer to binary file
  *
  * --------------------
- *  Postcondition:	prints out partyname and partysize data from nodes saved
- *					in binary file, unless empty.
+ *  Postcondition:  Prints out partyname and partysize data from nodes saved
+ *                  in binary file, unless empty.
  *
  *  --------------------
- *  returns:	nothing
+ *  returns:  nothing
  */
 void see_bin(char *arg)
 {
