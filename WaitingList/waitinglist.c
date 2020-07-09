@@ -2,8 +2,8 @@
 // COEN11L 
 // FILE: waitlist.c
 //
-// This program simulates a waiting list management system, utilizing a linked list
-// and opening/reading data from a file to test program with test cases.
+// This program simulates a waiting list management system, utilizing a linked list, threads,
+// recursion, and opening/reading data from a file, as well as writing to the file.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,7 +12,7 @@
 #include <pthread.h>
 #define Node   struct node
 
-struct node//creates struct node which contains char int and node pointer
+struct node//creates struct node which contains char array, int and node pointer
 {
 	char partyname[20];
 	int partysize;
@@ -33,6 +33,21 @@ pthread_mutex_t mutex;
 void reverse (char *);
 void freenodes(Node * , FILE * );
 
+/*
+ * Function:  add
+ *
+ * --------------------
+ *  Precondition: contains a char pointer parameter and an int parameter that must
+ *				  be >=1
+ *
+ * --------------------
+ *  Postcondition: allocates memory for a new node to be added to the appropriate
+ *				   linked list according to the party size, or does nothing if there 
+ *				   is no available memory to be allocated
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void add(char *nameofparty, int sizeofparty)//add to list
 {
 	int t;
@@ -87,6 +102,19 @@ void add(char *nameofparty, int sizeofparty)//add to list
 	return;
 }
 
+/*
+ * Function:  seat_available
+ *
+ * --------------------
+ *  Precondition: none
+ *
+ * --------------------
+ *  Postcondition: removes a node from linked list if a party size fits the
+ *				   available table, otherwise prints out message to stdout
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void seat_available()
 {
 	int f=0;
@@ -182,6 +210,19 @@ void seat_available()
 	return;
 }
 
+/*
+ * Function:  show_list
+ *
+ * --------------------
+ *  Precondition: none
+ *
+ * --------------------
+ *  Postcondition: traverses through linked lists and prints out partyname
+ * 				   and partysize for each node in list.
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void show_list()//show waitlist
 {
 	int i;
@@ -197,7 +238,20 @@ void show_list()//show waitlist
 	}
 	return;
 }
-	
+
+/*
+ * Function:  occurence
+ *
+ * --------------------
+ *  Precondition: none
+ *
+ * --------------------
+ *  Postcondition: traverses through linked lists and prints out the number of times
+ *				   a character, which the user enters, occurs within each node's partyname   
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void occurence()
 {
 	int counter=0;
@@ -229,6 +283,19 @@ void occurence()
 	return;
 }
 
+/*
+ * Function:  recur
+ *
+ * --------------------
+ *  Precondition: none
+ *
+ * --------------------
+ *  Postcondition: traverses through linked lists and calls reverse function 
+ *				   to print partyname of nodes backwards
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void recur()
 {
 	Node *p=NULL;
@@ -245,6 +312,19 @@ void recur()
 	}	
 }
 
+/*
+ * Function:  reverse
+ *
+ * --------------------
+ *  Precondition: receives char pointer
+ *
+ * --------------------
+ *  Postcondition: uses recursion to reach end of string and prints
+ *				   string backwards
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void reverse(char *p)
 {
 	if (*p=='\0')
@@ -255,7 +335,19 @@ void reverse(char *p)
 	printf("%c",*p);//print backwards after end is reached
 	return;
 }
-	
+
+/*
+ * Function:  save_data
+ *
+ * --------------------
+ *  Precondition: receives char pointer to data file
+ *
+ * --------------------
+ *  Postcondition: writes linked list data into file pointed by parameter
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void save_data(char *data)//save data into txt file
 {
 	int i;
@@ -282,6 +374,19 @@ void save_data(char *data)//save data into txt file
 	return;
 }
 
+/*
+ * Function:  freenodes
+ *
+ * --------------------
+ *  Precondition: receives Node pointer and FILE pointer
+ *
+ * --------------------
+ *  Postcondition: writes data from received Node into FILE pointed by parameter, 
+ *				   then frees up the memory used by Node.
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void freenodes(Node *p, FILE *fp)//recursive fuction to free and print nodes
 {
 	if (p==NULL)
@@ -292,8 +397,22 @@ void freenodes(Node *p, FILE *fp)//recursive fuction to free and print nodes
 	freenodes(p=p->next, fp);//recursive function to keep printing info into text file until end is reached
 	free(p);//will go back through recursive function to free all nodes
 	return;
-}	
+}
 
+/*
+ * Function:  read_data
+ *
+ * --------------------
+ *  Precondition: receives char pointer to data file
+ *
+ * --------------------
+ *  Postcondition: opens file pointed by parameter for reading and calls the
+ *				   add function if file is not empty, otherwise it sets head
+ *				   and tail pointers of linked lists to NULL
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void read_data(char *data)//read data from saved file
 {
 	int i;
@@ -324,6 +443,19 @@ void read_data(char *data)//read data from saved file
 	return;
 }
 
+/*
+ * Function:  loopThread
+ *
+ * --------------------
+ *  Precondition: 
+ *
+ * --------------------
+ *  Postcondition: creates infinite thread loop to autosave data from linked lists into
+ *				   binary file every 5 seconds
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void *loopThread (void *arg)
 {
 	char *binfile = (char*) arg;//set pointer to file
@@ -354,6 +486,19 @@ void *loopThread (void *arg)
 	}
 }
 
+/*
+ * Function:  see_bin
+ *
+ * --------------------
+ *  Precondition: receives char pointer to binary file
+ *
+ * --------------------
+ *  Postcondition: prints out partyname and partysize data from nodes saved
+ *				   in binary file, unless empty.
+ *
+ *  --------------------
+ *  returns: nothing
+ */
 void see_bin(char *arg)
 {
 	char *binfile = (char*) arg;
