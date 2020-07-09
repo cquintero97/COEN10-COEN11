@@ -1,2 +1,2 @@
-# COEN10-Intro_To_Programming
-Repository containing labs from "COEN10 - Intro to Programming" course.
+# COEN10-COEN11_Projects
+Repository containing highlight projects from "COEN10 - Intro to Programming" course and "COEN11 - Advanced Programming" course.
