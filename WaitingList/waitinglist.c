@@ -37,8 +37,7 @@ void freenodes(Node * , FILE * );
  * Function:  add
  *
  * --------------------
- * Precondition:  contains a char pointer parameter and an int parameter that must
- *                be >=1
+ * Precondition:  sizeofparty > 0
  *
  * --------------------
  * Postcondition:  allocates memory for a new node to be added to the appropriate
@@ -316,7 +315,7 @@ void recur()
  * Function:  reverse
  *
  * --------------------
- * Precondition:  receives char pointer
+ * Precondition:  *p points to partyname
  *
  * --------------------
  * Postcondition:  uses recursion to reach end of string and prints
@@ -340,7 +339,7 @@ void reverse(char *p)
  * Function:  save_data
  *
  * --------------------
- * Precondition:  receives char pointer to data file
+ * Precondition:  *data points to data file
  *
  * --------------------
  * Postcondition:  writes linked list data into file pointed by parameter
@@ -378,7 +377,7 @@ void save_data(char *data)
  * Function:  freenodes
  *
  * --------------------
- * Precondition:  receives Node pointer and FILE pointer
+ * Precondition:  *p points to list head and *fp points to file
  *
  * --------------------
  * Postcondition:  writes data from received Node into FILE pointed by parameter, 
@@ -403,7 +402,7 @@ void freenodes(Node *p, FILE *fp)
  * Function:  read_data
  *
  * --------------------
- * Precondition:  receives char pointer to data file
+ * Precondition:  *data points to data file
  *
  * --------------------
  * Postcondition:  opens file pointed by parameter for reading and calls the
@@ -490,7 +489,7 @@ void *loopThread (void *arg)
  * Function:  see_bin
  *
  * --------------------
- * Precondition:  receives char pointer to binary file
+ * Precondition:  *arg points to binary file
  *
  * --------------------
  * Postcondition:  Prints out partyname and partysize data from nodes saved
