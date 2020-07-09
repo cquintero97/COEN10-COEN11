@@ -12,7 +12,20 @@ int i;
 int counter=0;
 char names[6][20];
 
-void check()//function to check for letter
+/*
+ * Function:  check
+ *
+ * --------------------
+ *  Precondition:  none
+ *
+ * --------------------
+ *  Postcondition:  Prints out the occurence of a letter, that the user enters, throughout
+ *                  the entire names array.
+ *
+ *  --------------------
+ *  returns:  nothing
+ */
+void check()
 {
 	int lcounter=0;
 	char *l;
@@ -35,7 +48,20 @@ void check()//function to check for letter
 	return;	
 }
 
-void emergency()//function to make emergenecy appointment
+/*
+ * Function:  emergency
+ *
+ * --------------------
+ *  Precondition:  none
+ *
+ * --------------------
+ *  Postcondition:  Adds new appointment to beginning of array and shifts other appointments down.
+ *                  If array is full, removes last appointment in array and shifts the rest over.
+ *
+ *  --------------------
+ *  returns:  nothing
+ */
+void emergency()
 {
 	int k;
 	char emerg[20];
@@ -66,7 +92,21 @@ void emergency()//function to make emergenecy appointment
 	}
 	return;
 }
-void make ()//Fuction for scheduling a new appointment
+
+/*
+ * Function:  make
+ *
+ * --------------------
+ *  Precondition:  none
+ *
+ * --------------------
+ *  Postcondition:  Adds new appointment to names array and increments counter.
+ *                  If array is full, does not create new appointment.
+ *
+ *  --------------------
+ *  returns:  nothing
+ */
+void make ()
 {
         char enter[20];
         if (counter==6)//This checks to see if slots are full
@@ -95,7 +135,20 @@ void make ()//Fuction for scheduling a new appointment
         return;
 }
 
-void delete()//Function for canceling an appointment
+/*
+ * Function:  delete
+ *
+ * --------------------
+ *  Precondition:  none
+ *
+ * --------------------
+ *  Postcondition:  Removes appointment in names array with matching name that user
+ *                  enters and decrements counter, unless no match is found.
+ *
+ *  --------------------
+ *  returns:  nothing
+ */
+void delete()
 {
         char cancel[20];
         int j;
@@ -134,7 +187,19 @@ void delete()//Function for canceling an appointment
         return;
 }
 
-void view()//Function for viewing all appointments currently scheduled
+/*
+ * Function:  view
+ *
+ * --------------------
+ *  Precondition:  none
+ *
+ * --------------------
+ *  Postcondition:  prints out names of appointments in array with corresponding 
+ *                  appointment times.
+ *  --------------------
+ *  returns:  nothing
+ */
+void view()
 {
         if (counter==0)//no appointments scheduled
         {
